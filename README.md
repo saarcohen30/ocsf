@@ -1,11 +1,11 @@
 # Online Coalitional Skill Formation
 Code for implementation of the following assignment algorithms for our novel framework, termed as <i>online coalitional skill formation</i> (<b>OCSF</b>), for handling online task allocation from a standpoint of coalition formation:
-- Level-k Graph Probabilistic Recursive Reasoning (**<em>GrPR2-L</em>**), where agent `i` at level `k` assumes that other agents are at level `k-1` and then best responds by integrating over all possible interactions induced by the interaction graph and best responses from lower-level agents to agent `i` of level `k-2`.
-- Cognitive Hierarchy Graph Probabilistic Recursive Reasoning (**<em>GrPR2-CH</em>**), which lets each level-`k` player best respond to a <em>mixture</em> of strictly lower levels in the hierarchy, induced by truncation up to level `k - 1` from the underlying level distribution.
+- GREEDY -- A greedy algorithm that assigns an agent to a task as long as the task's requirements and budget are not violated, and regardless of the (known or unknown) agent distribution.
+- OCSF-CMDP -- We show that the constraints incurred by the tasks' requirements allows us to formulate the system as constrained MDPs (CMDPs). When the agents' distribution is <i>known</i>, we prove that our goal is maximizing the rate at which agents are assigned to each task while respecting their requirements. Based on the CMDP's optimal and stationary policy, OCSF-CMDP assigns agents to tasks until their budgets are reached.
 
 If any part of this code is used, the following paper must be cited: 
 
-[**Saar Cohen and Noa Agmon. Optimizing Multi-Agent Coordination via Hierarchical Graph Probabilistic Recursive Reasoning. <em>In AAMAS'22: Proceedings of the 21th International Conference on Autonomous Agents and Multiagent Systems, 2022</em>.**](https://www.ifaamas.org/Proceedings/aamas2022/pdfs/p290.pdf)
+Saar Cohen and Noa Agmon. Online Coalitional Skill Formation. <em>In AAMAS'23: Proceedings of the 22th International Conference on Autonomous Agents and Multiagent Systems, 2023</em> (to appear).
 
 ## Dependencies
 Evaluations were conducted using a 12GB NVIDIA Tesla K80 GPU, and implemented in Python3 with:
