@@ -16,20 +16,7 @@ Evaluations were implemented in Python3 with:
 Online coalitional skill formation (OCSF) handles online task allocation from a standpoint of coalition formation. In our formalization, there is a set of `m` <i>skills</i> and each agent has a <i>skill vector</i> that expresses her level at mastering each skill. Additionally, an <i>organizer</i> has a fixed set of `k` <i>tasks</i>, each with certain requirements reflecting the desired skill levels essential to complete the task, and the number of agents assigned to each task is limited by some <i>budget</i>. Agents arrive online, and must <i>immediately</i> and <i>irrevocably</i> be assigned to a coalition attending a task upon arrival, if at all. We propose a <i>new</i> skill model for online task allocation, where the set of possible mastering levels for each skill is <i>discrete</i>, and a coalition is evaluated by the extent each skill level is <i>covered</i> by the coalition.
 
 ## Execution
-The [`grpr2-ch/`](https://github.com/saarcohen30/GrPR2-CH/tree/main/grpr2-ch) and [`grpr2-ch-colab/`](https://github.com/saarcohen30/GrPR2-CH/tree/main/grpr2-ch-colab) sub-directories consist of the `main.py` module, whose execution performs the required testbed. Specifically, the following executions are possible:
-- `python grpr2-ch/main.py simple_spread_local maac` or `python grpr2-ch-colab/main.py simple_spread_local maac --train_graph True` - For a setup of `n=4` agents.
-- `python regma/regma.py simple_spread_hetero maac` or `python grpr2-ch-colab/main.py simple_spread_hetero maac` - For a setup of `n=8` agents.
+The [`ocsf/`](https://github.com/saarcohen30/ocsf/tree/main/ocsf) sub-directory consists of a module for each algorithm, whose execution performs the required testbed. 
 
 ### Important Flags
-- `--train_graph` -- In both setups (of either `n=4` or `n=8` agents), one can possibly decide whether to train the graph reasoning policy or not. After specifying `--train_graph true` upon the execution, the graph reasoning policy will be trained. By default, the graph reasoning policy will **not** be trained.
-- `--pretrained_graph` -- In both setups (of either `n=4` or `n=8` agents), one can possibly decide whether to utilize a pre-trained graph reasoning policy, which shall be stored in a file named as `local_graph.pt`. For this sake, the `--pretrained_graph` flag shall be set to true by specifying `--pretrained_graph true` upon the execution. By default, a pretrained graph reasoning policy will **not** be incorporated.
-- `--model_names_setting` - This flag specifies the names of the model to be trained. The possible models for initializing an self-play enviroment are as follows:
-
-| The Flag's Argument | The Model's Description |
-| ------------- | ------------- |
-| GrPR2AC`k`_GrPR2AC`k`  | For level-`k` GrPR2-CH agents |
-| PR2AC`k`_PR2AC`k`  | For level-`k` GrPR2-L agents |
-| DDPG_DDPG | For DDPG independent learners, which are regarded as having level-0 reasoning. |
-| MADDPG_MADDPG | For MADDPG agents, which are regarded as having level-0 reasoning. |
-| DDPG-ToM_DDPG-ToM | For DDPG agents with a level-1 [Theory-of-Mind model](http://proceedings.mlr.press/v80/rabinowitz18a/rabinowitz18a.pdf) that captures the dependency of an agent’s policy on opponents’ mental states (DDPG-ToM). |
-| DDPG-OM_DDPG-OM | For DDPG agents with a level-0 model of [opponent modeling](http://proceedings.mlr.press/v48/he16.pdf), which is implemented by augmenting DDPG with an opponent module (DDPG-OM) that predicts opponents' behaviors in future states. |
+- `-e` -- Specifies the tolerance for GREEDY.
