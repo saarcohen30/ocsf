@@ -9,14 +9,11 @@ If any part of this code is used, the following paper must be cited:
 Saar Cohen and Noa Agmon. Online Coalitional Skill Formation. <em>In AAMAS'23: Proceedings of the 22th International Conference on Autonomous Agents and Multiagent Systems, 2023</em> (to appear).
 
 ## Dependencies
-Evaluations were conducted using a 12GB NVIDIA Tesla K80 GPU, and implemented in Python3 with:
-- PyTorch v2.6.0 (The implementation appears [here](https://github.com/saarcohen30/GrPR2-A/tree/main/grpr2-ch-colab)).
-- PyTorch v1.12.0, which is suitable for environment without support of higher versions of PyTorch (The implementation appears [here](https://github.com/saarcohen30/GrPR2-A/tree/main/grpr2-ch)).
+Evaluations were implemented in Python3 with:
+- pulp-2.6.0
 
-**Note:** Each framework contains a `requirements.txt` file, which specifies the modules required for its execution on the respective PyTorch version. For instance, for the imlementation suitable for PyTorch v2.6.0, the `requirements.txt` file cotains a script which aims at downloading all the modules required for its execution on Google's Colaboratory.
-
-## The Cooperative Navigation Task
-In this task of the Particle World environment, `n` agents must cooperate through physical actions to reach a set of $n$ landmarks. Agents observe the relative positions of nearest agents and landmarks, and are collectively rewarded based on the proximity of any agent to each landmark. In other words, the agents have to "cover" all of the landmarks. Further, the agents occupy significant physical space and are penalized when colliding with each other. Our agents learn to infer the landmark they must cover, and move there while avoiding other agents. Though the environment holds a continuous state space, agents' actions space is discrete, and given by all possible directions of movement for each agent `{up, down, left, right, stay}`. Given an interaction graph, we augment this task for enabling local information sharing between neighbors, as outlined subsequently.
+## Online Coalitional Skill Formation
+Online coalitional skill formation (OCSF) handles online task allocation from a standpoint of coalition formation. In our formalization, there is a set of `m` <i>skills</i> and each agent has a <i>skill vector</i> that expresses her level at mastering each skill. Additionally, an <i>organizer</i> has a fixed set of `k` <i>tasks</i>, each with certain requirements reflecting the desired skill levels essential to complete the task, and the number of agents assigned to each task is limited by some <i>budget</i>. Agents arrive online, and must <i>immediately</i> and <i>irrevocably</i> be assigned to a coalition attending a task upon arrival, if at all. We propose a <i>new</i> skill model for online task allocation, where the set of possible mastering levels for each skill is <i>discrete</i>, and a coalition is evaluated by the extent each skill level is <i>covered</i> by the coalition.
 
 ## Execution
 The [`grpr2-ch/`](https://github.com/saarcohen30/GrPR2-CH/tree/main/grpr2-ch) and [`grpr2-ch-colab/`](https://github.com/saarcohen30/GrPR2-CH/tree/main/grpr2-ch-colab) sub-directories consist of the `main.py` module, whose execution performs the required testbed. Specifically, the following executions are possible:
