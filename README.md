@@ -1,7 +1,8 @@
 # Online Coalitional Skill Formation
 Code for implementation of the following assignment algorithms for our novel framework, termed as <i>online coalitional skill formation</i> (<b>OCSF</b>), for handling online task allocation from a standpoint of coalition formation:
-- GREEDY -- A greedy algorithm that assigns an agent to a task as long as the task's requirements and budget are not violated, and regardless of the (known or unknown) agent distribution.
-- OCSF-CMDP -- We show that the constraints incurred by the tasks' requirements allows us to formulate the system as constrained MDPs (CMDPs). When the agents' distribution is <i>known</i>, we prove that our goal is maximizing the rate at which agents are assigned to each task while respecting their requirements. Based on the CMDP's optimal and stationary policy, OCSF-CMDP assigns agents to tasks until their budgets are reached.
+- `GREEDY` - A greedy algorithm that assigns an agent to a task as long as the task's requirements and budget are not violated, and regardless of the (known or unknown) agent distribution.
+- `OCSF-CMDP` - We show that the constraints incurred by the tasks' requirements allows us to formulate the system as constrained MDPs (CMDPs). When the agents' distribution is <i>known</i>, we prove that our goal is maximizing the rate at which agents are assigned to each task while respecting their requirements. Based on the CMDP's optimal and stationary policy, OCSF-CMDP assigns agents to tasks until their budgets are reached.
+- `OptCMDP` and `TuneOptOCSF` - If the distribution is <i>unknown</i>, those algorithms that learn it online.
 
 If any part of this code is used, the following paper must be cited: 
 
